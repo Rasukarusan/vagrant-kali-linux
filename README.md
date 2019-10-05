@@ -21,3 +21,7 @@ $ VBoxManage -v
 |  Destribution  |  kalilinux/rolling  |
 |  Version       |  2019.3.0           |
 
+
+## Wifi Adapter
+
+[Alfa AWUS036NEH (Chipset : Ralink 3070)](https://www.alfa.com.tw/products_detail/10.htm)
