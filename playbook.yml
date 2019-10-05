@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   tasks:
-  - name: Update repositories cache
+  - name: update repositories cache
     apt:
       # update_cache: yes
       # cache_valid_time: 86400
@@ -44,7 +44,23 @@
         src: /vagrant/dotfiles/jellybeans.vim
         state: link
 
+  - name: create directory for dein.vim
+    file:
+        follow: no
+        path: /root/.vim/dein
+        state: directory
+
+  - name: download dein.vim installer
+    get_url: 
+        url: 'https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh'
+        dest: /root/.vim/dein
+        mode: 0755
+
+  - name: install dein.vim
+    command: sh /root/.vim/dein/installer.sh /root/.vim/dein
+    changed_when: no
+
   - name: install zsh-anyframe
     git:
-      repo: 'https://github.com/mollifier/anyframe'
-      dest: /root/.zsh/anyframe
+        repo: 'https://github.com/mollifier/anyframe'
+        dest: /root/.zsh/anyframe
