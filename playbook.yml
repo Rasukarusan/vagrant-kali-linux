@@ -1,0 +1,50 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Update repositories cache
+    apt:
+      # update_cache: yes
+      # cache_valid_time: 86400
+      # upgrade: full
+  - name: install by apt-get
+    apt:
+        name:
+            - fzf
+
+  - name: set default shell zsh
+    user:
+        name: root
+        shell: /bin/zsh
+
+  - name: create a symbolic link - zshrc
+    file:
+        force: yes
+        dest: /root/.zshrc
+        src: /vagrant/dotfiles/.zshrc
+        state: link
+
+  - name: create a symbolic link - vimrc
+    file:
+        force: yes
+        dest: /root/.vimrc
+        src: /vagrant/dotfiles/.vimrc
+        state: link
+
+  - name: create a .vim directory
+    file:
+        follow: yes
+        path: /root/.vim/colors
+        state: directory
+
+  - name: create a symbolic link - vim theme
+    file:
+        force: yes
+        dest: /root/.vim/colors/jellybeans.vim
+        src: /vagrant/dotfiles/jellybeans.vim
+        state: link
+
+  - name: install zsh-anyframe
+    git:
+      repo: 'https://github.com/mollifier/anyframe'
+      dest: /root/.zsh/anyframe
