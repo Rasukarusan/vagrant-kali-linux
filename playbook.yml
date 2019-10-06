@@ -11,6 +11,8 @@
     apt:
         name:
             - fzf
+            - autoconf
+            - libtool
 
   - name: set default shell zsh
     user:
