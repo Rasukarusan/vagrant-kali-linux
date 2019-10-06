@@ -13,6 +13,8 @@
             - fzf
             - autoconf
             - libtool
+            - libssl-dev
+            - airgraph-ng
 
   - name: set default shell zsh
     user:
