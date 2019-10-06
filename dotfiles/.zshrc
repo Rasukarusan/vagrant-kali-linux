@@ -124,19 +124,21 @@ function _gitLogPreviewOpen() {
     fi
 }
 alias monitor='airodump-ng wlan0'
+
 # USB-WifiをManageModeに切り替える
-alias modeToManage='_changeModeToManage'
-function _changeModeToManage() {
+alias modeToManage='_changeMode managed'
+# USB-WifiをMonitorModeに切り替える
+alias modeToMonitor='_changeMode monitor'
+function _changeMode() {
     ifconfig wlan0 down
-    iwconfig wlan0 mode managed
+    iwconfig wlan0 mode $1
     ifconfig wlan0 up
 }
-# USB-WifiをMonitorModeに切り替える
-alias modeToMonitor='_changeModeToMonitor'
-function _changeModeToMonitor() {
-    ifconfig wlan0 down
-    iwconfig wlan0 mode monitor
-    ifconfig wlan0 up
+
+alias modeToMonitorByAirmon='_changeModeToMonitorByAirmon'
+function _changeModeToMonitorByAirmon() {
+    airmon-ng check kill
+    airmon-ng start wlan0
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
