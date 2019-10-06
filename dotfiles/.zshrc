@@ -141,8 +141,20 @@ function _changeModeToMonitor() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# airmon-ng check kill
-# airmon-ng start wlan0
-# reaver -i wlan0mon -b 18:D2:76:9A:87:5A -vv -K
-#
+# ================================================== #
+# #
+# # ============================== #
+# #         alias-Command          #
+# # ============================== #
+
+alias gd='git diff -b'
+alias gdc='git diff -b --cached'
+alias co='git checkout $(git branch -a | tr -d " " |fzf --height=100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
+alias co-='git checkout -'
+alias gst='git status'
+alias gca='git checkout $(git diff --name-only)'
+# 最終更新日が一番新しいもののファイル名を取得
+alias fin='echo `ls -t | head -n 1`'
+# less `fin`と打つのが面倒だったため関数化。finはコマンドとして残しておきたいので残す
+alias late='less $(echo `ls -t | head -n 1`)'
 
