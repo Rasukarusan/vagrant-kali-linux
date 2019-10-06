@@ -27,3 +27,7 @@ $ VBoxManage -v
 ## Wifi Adapter
 
 [Alfa AWUS036NEH (Chipset : Ralink 3070)](https://www.alfa.com.tw/products_detail/10.htm)
+
+## Article
+
+https://www.rasukarusan.com/entry/2019/10/06/171811
