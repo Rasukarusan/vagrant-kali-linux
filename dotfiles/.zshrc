@@ -22,6 +22,8 @@ setopt print_eight_bit
 setopt hist_ignore_all_dups
 setopt auto_cd
 setopt no_beep
+export HISTFILE=${HOME}/.zsh_history
+export SAVEHIST=1000
 autoload -Uz history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
