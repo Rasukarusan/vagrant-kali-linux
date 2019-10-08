@@ -23,7 +23,8 @@ setopt hist_ignore_all_dups
 setopt auto_cd
 setopt no_beep
 export HISTFILE=${HOME}/.zsh_history
-export SAVEHIST=1000
+export HISTSIZE=1000
+export SAVEHIST=10000
 autoload -Uz history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -70,7 +71,7 @@ function clean_cdr_cache_history() {
         local delete_line_number=1
         local delete_line_numbers=()
         while read line; do
-            ls $line >/dev/null 2>&1 
+            ls $line >/dev/null 2>&1
             if [ $? -eq 1 ]; then
                 delete_line_numbers=($delete_line_number "${delete_line_numbers[@]}" )
             fi
