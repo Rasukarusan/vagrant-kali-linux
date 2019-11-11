@@ -1,6 +1,8 @@
 ---
 - hosts: all
   become: yes
+  vars:
+      src_dir: /usr/local/src
   tasks:
   - name: update repositories cache
     apt:
@@ -15,6 +17,7 @@
             - libtool
             - libssl-dev
             - airgraph-ng
+            - zlib
 
   - name: set default shell zsh
     user:
@@ -68,3 +71,23 @@
     git:
         repo: 'https://github.com/mollifier/anyframe'
         dest: /root/.zsh/anyframe
+
+  # - name: download hcxdumptool for wpa2 crack
+  #   git:
+  #       repo: 'https://github.com/ZerBea/hcxdumptool.git'
+  #       dest: "{{ src_dir }}/hcxdumptool"
+  #
+  # - name: install hcxdumptool
+  #   make: 
+  #       chdir: "{{ src_dir }}/hcxdumptool"
+  #       target: install
+  #
+  # - name: download hcxtools for wpa2 crack
+  #   git:
+  #       repo: 'https://github.com/ZerBea/hcxtools.git'
+  #       dest: "{{ src_dir }}/hcxtools"
+  #
+  # - name: install hcxtools
+  #   make: 
+  #       chdir: "{{ src_dir }}/hcxtools"
+  #       target: install
