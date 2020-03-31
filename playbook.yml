@@ -6,9 +6,9 @@
   tasks:
   - name: update repositories cache
     apt:
-      # update_cache: yes
-      # cache_valid_time: 86400
-      # upgrade: full
+      update_cache: yes
+      cache_valid_time: 86400
+      upgrade: full
   - name: install by apt-get
     apt:
         name:
