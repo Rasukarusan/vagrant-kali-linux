@@ -177,7 +177,7 @@ alias monitor='airodump-ng wlan0mon'
 # ============================== #
 #         alias-Function         #
 # ============================== #
-alias pspk='_pspk'
+alias pspk='_process_kill_by_fzf'
 alias fgg='_fgg'
 alias tigg='_gitLogPreviewOpen'
 alias modeToManage='_changeMode managed'
