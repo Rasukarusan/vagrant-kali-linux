@@ -15,6 +15,15 @@ Vagrant 2.2.3
 
 $ VBoxManage -v
 5.2.26r128414
+
+# or
+
+$ vagrant -v
+Vagrant 2.2.7
+
+$ VBoxManage -V
+6.1.4r136177
+
 ```
 ### Box Kali-Linux
 
@@ -82,4 +91,22 @@ permitted by applicable law.
 Last login: Mon Oct  7 08:18:00 2019 from 10.0.2.2
 
 root@kali:~
+```
+
+### SSH login. Not using `vagrant ssh`
+
+```sh
+# Write ssh config to .ssh/config
+$ vagrant ssh-config >> ~/.ssh/config
+# Edit Hostname default -> kali
+$ vim ~/.ssh/config
+
+Host kali
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  ...
+
+# ssh login
+$ ssh kali
 ```
